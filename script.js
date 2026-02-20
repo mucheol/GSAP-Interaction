@@ -56,3 +56,18 @@ gsap.to(".card", {
     start: "top 75%",
   }
 });
+
+//--- Scroll section ---//
+const panels = gsap.utils.toArray(".panel");
+
+gsap.to(panels, {
+  // 전체 너비에서 한 화면만큼 빼기
+  xPercent: -100 * (panels.length - 1),
+  ease: "none",
+  scrollTrigger: {
+    trigger: "#horizontal",
+    pin: true,           // 섹션을 화면에 고정
+    scrub: 1,            // 스크롤에 부드럽게 동기화 (1 = 약간의 관성)
+    end: () => "+=" + document.querySelector(".horizontal-wrapper").offsetWidth,
+  }
+});

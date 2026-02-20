@@ -12,7 +12,7 @@
   <section id="main" class="min-h-screen flex flex-col items-center justify-center bg-[#0a0a0a] text-white relative">
     <h1 class="main-title text-6xl md:text-8xl font-bold tracking-tight text-center "></h1>
     <p class="main-subtitle text-xl md:text-2xl text-gray-400 mt-6 opacity-0">
-      GSAP의 다양한 기능을 체험할 수 있게 구현했습니다.
+      GSAP의 다양한 기능을 사용해보고 정리했습니다.
     </p>
     <div class="main-scroll-hint mt-12 opacity-0 flex flex-col items-center gap-2">
       <span class="text-sm text-gray-500">Scroll Down</span>
@@ -21,33 +21,63 @@
   </section>
 
   <!-- Card -->
-   <section id="cards" class="min-h-screen bg-[#111] text-white py-20 px-10">
-    <h2 class="cards-title text-4xl md:text-6xl font-bold text-center mb-20 opacity-0">
-      ScrollTrigger + 시간차
-    </h2>
-    <div class="cards-wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-      <div class="card bg-[#1a1a2e] rounded-2xl p-8 opacity-0 translate-y-20">
-        <div class="text-4xl mb-4">🚀</div>
-        <h3 class="text-xl font-semibold mb-2">gsap.to()</h3>
-        <p class="text-gray-400 text-sm">요소를 목표 상태로 애니메이션</p>
-      </div>
-      <div class="card bg-[#1a1a2e] rounded-2xl p-8 opacity-0 translate-y-20">
-        <div class="text-4xl mb-4">⏪</div>
-        <h3 class="text-xl font-semibold mb-2">gsap.from()</h3>
-        <p class="text-gray-400 text-sm">시작 상태에서 현재 상태로 애니메이션합니다</p>
-      </div>
-      <div class="card bg-[#1a1a2e] rounded-2xl p-8 opacity-0 translate-y-20">
-        <div class="text-4xl mb-4">🔄</div>
-        <h3 class="text-xl font-semibold mb-2">gsap.fromTo()</h3>
-        <p class="text-gray-400 text-sm">시작과 끝 상태를 모두 지정합니다</p>
-      </div>
-      <div class="card bg-[#1a1a2e] rounded-2xl p-8 opacity-0 translate-y-20">
-        <div class="text-4xl mb-4">📋</div>
-        <h3 class="text-xl font-semibold mb-2">Timeline</h3>
-        <p class="text-gray-400 text-sm">여러 애니메이션을 순서대로 조합합니다</p>
+  <section id="cards" class="min-h-screen bg-[#111] text-white py-20 px-10">
+  <h2 class="cards-title text-4xl md:text-6xl font-bold text-center mb-20 opacity-0">
+    ScrollTrigger + 시간차
+  </h2>
+  <div class="cards-wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+    <div class="card bg-[#1a1a2e] rounded-2xl p-8 opacity-0 translate-y-20">
+      <div class="text-4xl mb-4">🚀</div>
+      <h3 class="text-xl font-semibold mb-2">gsap.to()</h3>
+      <p class="text-gray-400 text-sm">요소를 목표 상태로 애니메이션</p>
+    </div>
+    <div class="card bg-[#1a1a2e] rounded-2xl p-8 opacity-0 translate-y-20">
+      <div class="text-4xl mb-4">⏪</div>
+      <h3 class="text-xl font-semibold mb-2">gsap.from()</h3>
+      <p class="text-gray-400 text-sm">시작 상태에서 현재 상태로 애니메이션합니다</p>
+    </div>
+    <div class="card bg-[#1a1a2e] rounded-2xl p-8 opacity-0 translate-y-20">
+      <div class="text-4xl mb-4">🔄</div>
+      <h3 class="text-xl font-semibold mb-2">gsap.fromTo()</h3>
+      <p class="text-gray-400 text-sm">시작과 끝 상태를 모두 지정합니다</p>
+    </div>
+    <div class="card bg-[#1a1a2e] rounded-2xl p-8 opacity-0 translate-y-20">
+      <div class="text-4xl mb-4">📋</div>
+      <h3 class="text-xl font-semibold mb-2">Timeline</h3>
+      <p class="text-gray-400 text-sm">여러 애니메이션을 순서대로 조합합니다</p>
+    </div>
+  </div>
+  </section>
+
+<!-- 가로 스크롤 -->
+<section id="horizontal" class="bg-[#0a0a0a] text-white overflow-hidden">
+  <div class="horizontal-wrapper flex w-[400vw] h-screen">
+    <div class="panel w-screen h-screen flex items-center justify-center bg-[#1a1a2e] shrink-0">
+      <div class="text-center">
+        <h2 class="text-5xl md:text-7xl font-bold mb-4">Panel 1</h2>
+        <p class="text-gray-400 text-lg">가로 스크롤이 시작</p>
       </div>
     </div>
-   </section>
+    <div class="panel w-screen h-screen flex items-center justify-center bg-[#16213e] shrink-0">
+      <div class="text-center">
+        <h2 class="text-5xl md:text-7xl font-bold mb-4">Panel 2</h2>
+        <p class="text-gray-400 text-lg">세로로 스크롤하면 가로로 이동하는 기능</p>
+      </div>
+    </div>
+    <div class="panel w-screen h-screen flex items-center justify-center bg-[#0f3460] shrink-0">
+      <div class="text-center">
+        <h2 class="text-5xl md:text-7xl font-bold mb-4">Panel 3</h2>
+        <p class="text-gray-400 text-lg">pin + scrub 조합</p>
+      </div>
+    </div>
+    <div class="panel w-screen h-screen flex items-center justify-center bg-[#533483] shrink-0">
+      <div class="text-center">
+        <h2 class="text-5xl md:text-7xl font-bold mb-4">Panel 4</h2>
+        <p class="text-gray-400 text-lg">가로 스크롤 마지막 패널</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- GSAP -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
