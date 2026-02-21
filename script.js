@@ -68,6 +68,41 @@ gsap.to(panels, {
     trigger: "#horizontal",
     pin: true,           // 섹션을 화면에 고정
     scrub: 1,            // 스크롤에 부드럽게 동기화 (1 = 약간의 관성)
-    end: () => "+=" + document.querySelector(".horizontal-wrapper").offsetWidth,
+    end: () => "+=" + document.querySelector(".horizontal-wrapper").offsetWidth * 0.5 ,
   }
+});
+
+//--- Text Animation ---//
+//한줄씩 등장
+gsap.utils.toArray(".reveal-line").forEach((line, i) => {
+  gsap.to(line, {
+    opacity: 1,
+    y: 0,
+    duration: 1.2,
+    stagger: 0.3,
+    delay: 0.1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: line,
+      start: "top 85%",
+    }
+  });
+});
+// 카운트업
+gsap.utils.toArray(".counter-number").forEach(counter => {
+  const target = parseInt(counter.dataset.target);
+  const obj = { value: 0 };
+
+  gsap.to(obj, {
+    value: target,
+    duration: 2,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: counter,
+      start: "top 80%",
+    },
+    onUpdate: () => {
+      counter.textContent = Math.floor(obj.value);
+    }
+  });
 });

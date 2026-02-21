@@ -51,30 +51,59 @@
 
 <!-- 가로 스크롤 -->
 <section id="horizontal" class="bg-[#0a0a0a] text-white overflow-hidden">
-  <div class="horizontal-wrapper flex w-[400vw] h-screen">
+  <div class="horizontal-wrapper flex w-[300vw] h-screen">
     <div class="panel w-screen h-screen flex items-center justify-center bg-[#1a1a2e] shrink-0">
       <div class="text-center">
         <h2 class="text-5xl md:text-7xl font-bold mb-4">Panel 1</h2>
-        <p class="text-gray-400 text-lg">가로 스크롤이 시작</p>
+        <p class="text-gray-400 text-lg">세로로 스크롤하면 가로로 이동하는 기능</p>
       </div>
     </div>
     <div class="panel w-screen h-screen flex items-center justify-center bg-[#16213e] shrink-0">
       <div class="text-center">
         <h2 class="text-5xl md:text-7xl font-bold mb-4">Panel 2</h2>
-        <p class="text-gray-400 text-lg">세로로 스크롤하면 가로로 이동하는 기능</p>
+        <p class="text-gray-400 text-lg">pin + scrub 조합</p>
       </div>
     </div>
     <div class="panel w-screen h-screen flex items-center justify-center bg-[#0f3460] shrink-0">
       <div class="text-center">
         <h2 class="text-5xl md:text-7xl font-bold mb-4">Panel 3</h2>
-        <p class="text-gray-400 text-lg">pin + scrub 조합</p>
-      </div>
-    </div>
-    <div class="panel w-screen h-screen flex items-center justify-center bg-[#533483] shrink-0">
-      <div class="text-center">
-        <h2 class="text-5xl md:text-7xl font-bold mb-4">Panel 4</h2>
         <p class="text-gray-400 text-lg">가로 스크롤 마지막 패널</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- 텍스트 애니메이션 + 카운트업 -->
+<section id="text-animation" class="min-h-screen bg-[#111] text-white flex flex-col items-center justify-center gap-20 py-20 px-10">
+  <!-- 한줄씩 나타나는 텍스트 -->
+  <div class="text-reveal max-w-4xl text-center">
+    <p class="reveal-line text-3xl md:text-5xl font-bold leading-tight opacity-0 translate-y-10 mb-4">
+      GSAP 인터랙션
+    </p>
+    <p class="reveal-line text-3xl md:text-5xl font-bold leading-tight opacity-0 translate-y-10 mb-4">
+      스크롤에 반응하고
+    </p>
+    <p class="reveal-line text-3xl md:text-5xl font-bold leading-tight opacity-0 translate-y-10 mb-4">
+      자유롭게 제어가능
+    </p>
+  </div>
+  
+  <!-- 카운트업 -->
+  <div class="counters flex flex-wrap justify-center gap-16">
+    <div class="counter-item text-center">
+      <span class="counter-number text-5xl md:text-7xl font-bold" data-target="100">0</span>
+      <span class="text-5xl md:text-7xl font-bold">+</span>
+      <p class="text-gray-400 mt-2">Easing 옵션</p>
+    </div>
+    <div class="counter-item text-center">
+      <span class="counter-number text-5xl md:text-7xl font-bold" data-target="15">0</span>
+      <span class="text-5xl md:text-7xl font-bold">+</span>
+      <p class="text-gray-400 mt-2">플러그인</p>
+    </div>
+    <div class="counter-item text-center">
+      <span class="counter-number text-5xl md:text-7xl font-bold" data-target="1200">0</span>
+      <span class="text-5xl md:text-7xl font-bold">만+</span>
+      <p class="text-gray-400 mt-2">주간 다운로드</p>
     </div>
   </div>
 </section>
