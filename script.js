@@ -1,4 +1,5 @@
-gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin, TextPlugin)
+window.addEventListener("load", () => {
+ gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin, TextPlugin);
 
 //--- Main Section ---//
 // 타이핑
@@ -69,6 +70,7 @@ gsap.to(panels, {
     pin: true,           // 섹션을 화면에 고정
     scrub: 1,            // 스크롤에 부드럽게 동기화 (1 = 약간의 관성)
     end: () => "+=" + document.querySelector(".horizontal-wrapper").offsetWidth * 0.5 ,
+    invalidateOnRefresh: true,
   }
 });
 
@@ -105,4 +107,35 @@ gsap.utils.toArray(".counter-number").forEach(counter => {
       counter.textContent = Math.floor(obj.value);
     }
   });
+});
+
+//--- Parallax ---//
+gsap.utils.toArray(".parallax-block").forEach(block => {
+  const img = block.querySelector(".parallax-img");
+  const text = block.querySelector(".parallax-text");
+
+  // 이미지 느리게 살짝 위로
+  gsap.to(img, {
+    yPercent: -15,
+    ease: "none",
+    scrollTrigger: {
+      trigger: block,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+    }
+  });
+  // 택스트 빠르게(위로)
+  gsap.to(text, {
+    yPercent: -80,
+    ease: "none",
+    scrollTrigger: {
+      trigger: block,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+    }
+  });
+});
+ScrollTrigger.refresh();
 });
