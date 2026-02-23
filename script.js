@@ -137,5 +137,51 @@ gsap.utils.toArray(".parallax-block").forEach(block => {
     }
   });
 });
+
+//--- SVG Drawing ---//
+gsap.to(".svg-title", {
+  opacity: 1,
+  duration: 0.8,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: "#svg-draw",
+    start: "top 80%",
+  }
+});
+gsap.to(".svg-subtitle", {
+  opacity: 1,
+  duration: 0.8,
+  delay: 0.3,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: "#svg-draw",
+    start: "top 80%",
+  }
+});
+// 선 (스크롤 동기화)
+gsap.utils.toArray(".draw-line").forEach((line, i) => {
+  gsap.to(line, {
+    strokeDashoffset: 0,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".svg-wrapper",
+      start: "top 70%",
+      end: "bottom 30%",
+      scrub: 1,
+    }
+  });
+});
+// 선 다 그려진 후 텍스트
+gsap.to(".svg-text", {
+  opacity: 1,
+  duration: 0.8,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: ".svg-wrapper",
+    start: "bottom 40%"
+  }
+})
+
+
 ScrollTrigger.refresh();
 });

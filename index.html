@@ -131,6 +131,58 @@
     </div>
   </section>
  
+  <!-- SVG Drawing -->
+   <section id="svg-draw" class="min-h-screen bg-[#111] flex flex-col items-center justify-center gap-12 py-20 px-10">
+    <h2 class="svg-title text-4xl md:text-6xl font-bold text-center opacity-0">
+      SVG Line Drawing
+    </h2>
+    <p class="svg-subtitle text-lg text-gray-400 text-center opacity-0">
+      스크롤하면 선이 그려집니다.
+    </p>
+    <div class="svg-wrapper w-full max-w-3xl mx-auto">
+      <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+        <!-- 물결 라인 -->
+        <path
+          class="draw-line"
+          d="M50 200 C150 100, 250 300, 350 200 S550 100, 650 200 S750 300, 750 200"
+          stroke="#6366f1"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
+        <!-- 원 -->
+        <circle
+          class="draw-line"
+          cx="400"
+          cy="200"
+          r="120"
+          stroke="#a855f7"
+          stroke-width="3"
+        />
+        <!-- 삼각형 -->
+        <polygon
+          class="draw-line"
+          points="400,60 520,300 280,300"
+          stroke="#ec4899"
+          stroke-width="3"
+          fill="none"
+        />
+        <!-- 텍스트 경로 -->
+        <text
+          class="svg-text"
+          x="400"
+          y="380"
+          text-anchor="middle"
+          fill="#fff"
+          font-size="24"
+          font-weight="bold"
+          opacity="0"
+        >
+          GSAP + SVG
+        </text>
+      </svg>
+    </div>
+   </section>
+
 
 <!-- GSAP -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>

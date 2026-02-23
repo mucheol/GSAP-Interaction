@@ -11,4 +11,7 @@ html {
 body {
   overflow-x: hidden;
 }
-/* main */
+.draw-line {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+}
