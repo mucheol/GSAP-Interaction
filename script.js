@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
- gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin, TextPlugin);
+ gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin, TextPlugin, ScrollToPlugin);
 
 //--- Main Section ---//
 // 타이핑
@@ -182,6 +182,127 @@ gsap.to(".svg-text", {
   }
 })
 
+//--- Draggable ---//
+gsap.to(".drag-title", {
+  opacity: 1,
+  duration: 0.8,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: "#draggable",
+    start: "top 80%",
+  }
+});
+gsap.to(".drag-subtitle", {
+  opacity: 1,
+  duration: 0.8,
+  delay: 0.3,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: "#draggable",
+    start: "top 75%"
+  }
+});
+// 드래그 요소 등장 애니메이션
+gsap.from(".drag-item", {
+  scale: 0,
+  opacity: 0,
+  duration: 0.5,
+  stagger: 0.1,
+  ease: "back.out(1.7)",
+  scrollTrigger: {
+    trigger: ".drag-area",
+    start: "top 75%",
+  }
+});
+
+// Draggable 적용
+const dragX = document.getElementById("drag-x");
+const dragY = document.getElementById("drag-y");
+const dragRotation = document.getElementById("drag-rotation");
+
+Draggable.create(".drag-item", {
+  bounds: ".drag-area",   // 이 영역 안에서만 드래그 가능하게
+  onDrag: function () {
+    // 드래그 중 좌표 실시간 표시
+    dragX.textContent = Math.round(this.x);
+    dragY.textContent = Math.round(this.y);
+  },
+  onDragEnd: function () {
+    // 놓았을때 살짝 튕기게
+    gsap.fromTo(this.target,
+      { scale: 0.9 },
+      { scale: 1, duration: 0.4, ease: "elastic.out(1, 0.3)" }
+    );
+  }
+});
+// 회전기능
+document.querySelectorAll(".drag-item").forEach(item => {
+  item.addEventListener("dblclick", () => {
+    gsap.to(item, {
+      rotation: "+=45",
+      duration: 0.4,
+      ease: "back.out(1.7)",
+    });
+    dragRotation.textContent = Math.round(gsap.getProperty(item, "rotation")) + 90 + "°";
+  });
+});
+
+//--- Footer ---//
+gsap.fromTo(".footer-bg-text", 
+  { xPercent: 30},
+  {
+    xPercent: -80,
+    left: "50%",
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#footer",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+    }
+  }
+);
+const footerTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#footer",
+    start: "top 60%",
+  }
+});
+
+footerTl
+  .to(".footer-title", {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: "power3.out",
+  })
+  .to(".footer-subtitle", {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power3.out",
+  }, "-=0.4")
+  .to(".footer-links", {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power3.out",
+  }, "-=0.3")
+  .to("#scroll-top", {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power3.out",
+  }, "-=0.3");
+
+  // Top버튼
+  document.getElementById("scroll-top").addEventListener("click", () => {
+    gsap.to(window, {
+      scrollTo: { y: 0 },
+      duration: 2,
+      ease: "power2.inOut",
+    })
+  });
 
 ScrollTrigger.refresh();
 });
