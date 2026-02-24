@@ -178,7 +178,7 @@ gsap.to(".svg-text", {
   ease: "power2.out",
   scrollTrigger: {
     trigger: ".svg-wrapper",
-    start: "bottom 40%"
+    start: "bottom 70%"
   }
 })
 
@@ -235,15 +235,28 @@ Draggable.create(".drag-item", {
     );
   }
 });
-// 회전기능
+// 회전기능 (PC: dblclick, 모바일: doubletap)
 document.querySelectorAll(".drag-item").forEach(item => {
-  item.addEventListener("dblclick", () => {
+  const rotate = () => {
     gsap.to(item, {
       rotation: "+=45",
       duration: 0.4,
       ease: "back.out(1.7)",
     });
-    dragRotation.textContent = Math.round(gsap.getProperty(item, "rotation")) + 90 + "°";
+    dragRotation.textContent = Math.round(gsap.getProperty(item, "rotation") + 45) + "°";
+  };
+
+  // PC
+  item.addEventListener("dblclick", rotate);
+  // 모바일 doubletap
+  let lastTap = 0;
+  item.addEventListener("touchend", (e) => {
+    const now = Date.now();
+    if (now - lastTap < 300) {
+      e.preventDefault();
+      rotate();
+    }
+    lastTap = now;
   });
 });
 
