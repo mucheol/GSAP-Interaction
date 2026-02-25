@@ -1,6 +1,49 @@
 window.addEventListener("load", () => {
  gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin, TextPlugin, ScrollToPlugin);
 
+//--- Progress bar ---//
+gsap.to("#progress-bar", {
+  width: "100%",
+  ease: "none",
+  scrollTrigger: {
+    trigger: "body",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+  }
+})
+
+//--- Cursor ---//
+const cursor = document.getElementById("cursor");
+const follower = document.getElementById("cursor-follower");
+
+document.addEventListener("mousemove", (e) => {
+  // 작은원 - 바로 따라가게
+  gsap.to(cursor, {
+    x: e.clientX,
+    y: e.clientY,
+    duration: 0.1,
+    ease: "power2.out",
+  });
+  // 큰원 - 늦게 따라가게
+  gsap.to(follower, {
+    x: e.clientX,
+    y: e.clientY,
+    duration: 0.3,
+    ease: "power2.out",
+  });
+});
+document.querySelectorAll("a, button, .drag-item").forEach(el => {
+  el.addEventListener("mouseenter", () => {
+    gsap.to(cursor, {scale: 2, duration: 0.3 });
+    gsap.to(follower, { scale: 1.5, opacity: 0, duration: 0.3 });
+  });
+  el.addEventListener("mouseleave", () => {
+    gsap.to(cursor, { scale: 1, duration: 0.3 });
+    gsap.to(follower, { scale: 1, opacity: 1, duration: 0.3 });
+  });
+})
+
 //--- Main Section ---//
 // 타이핑
 gsap.to(".main-title", {

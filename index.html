@@ -9,6 +9,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[#0a0a0a] text-white overflow-x-hidden">
+  <!-- Progress bar -->
+  <div id="progress-bar" class="fixed top-0 left-0 h-1 z-50" style="width: 0%"></div>
+
+  <!-- Custom cursor -->
+  <div id="cursor" class="fixed w-3 h-3 bg-white rounded-full pointer-events-none z-50 mix-blend-difference" style="transform: translate(-50%, -50%)"></div>
+  <div id="cursor-follower" class="fixed w-7 h-7 border border-white rounded-full pointer-events-none z-50 mix-blend-difference" style="transform: translate(-50%, -50%)"></div>
+
   <!-- Main -->
   <section id="main" class="min-h-screen flex flex-col items-center justify-center bg-[#0a0a0a] text-white relative">
     <h1 class="main-title text-6xl md:text-8xl font-bold tracking-tight text-center "></h1>
