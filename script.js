@@ -101,6 +101,14 @@ gsap.to(".card", {
   }
 });
 
+//--- Marquee ---//
+gsap.to(".marquee-track", {
+  xPercent: -33.33,
+  repeat: -1,
+  duration: 10,
+  ease: "none",
+})
+
 //--- Scroll section ---//
 const panels = gsap.utils.toArray(".panel");
 
@@ -148,6 +156,22 @@ gsap.utils.toArray(".counter-number").forEach(counter => {
     },
     onUpdate: () => {
       counter.textContent = Math.floor(obj.value);
+    }
+  });
+});
+
+//--- Text Highlight ---//
+const highlightWords = gsap.utils.toArray(".highlight-word");
+
+highlightWords.forEach((word, i) => {
+  gsap.to(word, {
+    color: "#ffffff",
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#text-highlight",
+      start: () => "top+=" + (i * 20) + " 40%",
+      end: () => "top+=" + ((i + 1) * 20) + " 40%",
+      scrub: true,
     }
   });
 });
