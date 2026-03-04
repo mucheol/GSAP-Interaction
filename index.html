@@ -172,61 +172,105 @@
       </div>
     </div>
   </section>
- 
-  <!-- SVG Drawing -->
-   <section id="svg-draw" class="min-h-screen bg-[#111] flex flex-col items-center justify-center gap-12 py-20 px-10">
-    <h2 class="svg-title text-4xl md:text-6xl font-bold text-center opacity-0">
-      SVG Line Drawing
-    </h2>
-    <p class="svg-subtitle text-lg text-gray-400 text-center opacity-0">
-      스크롤하면 선이 그려집니다.
-    </p>
-    <div class="svg-wrapper w-full max-w-3xl mx-auto">
-      <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
-        <!-- 물결 라인 -->
-        <path
-          class="draw-line"
-          d="M50 200 C150 100, 250 300, 350 200 S550 100, 650 200 S750 300, 750 200"
-          stroke="#6366f1"
-          stroke-width="4"
-          stroke-linecap="round"
-        />
-        <!-- 원 -->
-        <circle
-          class="draw-line"
-          cx="400"
-          cy="200"
-          r="120"
-          stroke="#a855f7"
-          stroke-width="3"
-        />
-        <!-- 삼각형 -->
-        <polygon
-          class="draw-line"
-          points="400,60 520,300 280,300"
-          stroke="#ec4899"
-          stroke-width="3"
-          fill="none"
-        />
-        <!-- 텍스트 경로 -->
-        <text
-          class="svg-text"
-          x="400"
-          y="385"
-          text-anchor="middle"
-          fill="#fff"
-          font-size="40"
-          font-weight="bold"
-          opacity="0"
-        >
-          GSAP + SVG
-        </text>
-      </svg>
-    </div>
-   </section>
 
-   <!-- Draggable -->
-   <section id="draggable" class="min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center gap-12 py-20 px-10">
+  
+<!-- Image Reveal -->
+<section id="image-reveal" class="min-h-screen bg-[#111] flex flex-col items-center justify-center gap-12 py-20 px-10">
+  <h2 class="reveal-title text-4xl md:text-6xl font-bold text-center opacity-0">Image Reveal</h2>
+  <p class="reveal-subtitle text-lg text-gray-400 text-center opacity-0">스크롤하면 이미지가 열립니다.</p>
+
+  <div class="reveal-grid grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl w-full">
+    <!-- 왼쪽에서 열림 -->
+     <div class="reveal-container relative overflow-hidden rounded-2xl h-[400px]">
+      <div class="reveal-cover absolute inset-0 bg-[#6366f1] z-10"></div>
+      <img src="https://picsum.photos/600/800?random=10" alt="reveal" class="w-full h-full object-cover" />
+     </div>
+    <!-- 위에서 열림 -->
+     <div class="reveal-container relative overflow-hidden rounded-2xl h-[400px]">
+      <div class="reveal-cover absolute inset-0 bg-[#a855f7] z-10"></div>
+      <img src="https://picsum.photos/600/800?random=11" alt="reveal" class="w-full h-full object-cover" />
+     </div>
+    <!-- 오른쪽에서 열림 -->
+     <div class="reveal-container relative overflow-hidden rounded-2xl h-[400px]">
+       <div class="reveal-cover absolute inset-0 bg-[#ec4899] z-10"></div>
+       <img src="https://picsum.photos/600/800?random=12" alt="reveal" class="w-full h-full object-cover" />
+     </div>
+  </div>
+</section>
+
+<!-- Magnetic Button -->
+<section id="magnetic" class="min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center gap-12 py-20 px-10">
+  <h2 class="mag-title text-4xl md:text-6xl font-bold text-center opacity-0">Magnetic Button</h2>
+  <p class="mag-subtitle text-lg text-gray-400 text-center opacity-0">버튼 근처로 마우스를 가져가보세요</p>
+
+  <div class="flex flex-wrap justify-center gap-12 mt-8">
+    <button class="magnetic-btn relative w-40 h-40 rounded-full bg-[#6366f1] flex items-center justify-center text-lg font-bold transition-none">
+      <span class="magnetic-text pointer-events-none">Hover Me</span>
+    </button>
+    <button class="magnetic-btn relative w-40 h-40 rounded-full border-2 border-[#a855f7] flex items-center justify-center text-lg font-bold transition-none">
+      <span class="magnetic-text pointer-events-none">Hover Me</span>
+    </button>
+    <button class="magnetic-btn relative w-40 h-40 rounded-full bg-[#ec4899] flex items-center justify-center text-lg font-bold transition-none">
+      <span class="magnetic-text pointer-events-none">Hover Me</span>
+    </button>
+  </div>
+</section>
+
+ 
+<!-- SVG Drawing -->
+<section id="svg-draw" class="min-h-screen bg-[#111] flex flex-col items-center justify-center gap-12 py-20 px-10">
+<h2 class="svg-title text-4xl md:text-6xl font-bold text-center opacity-0">
+  SVG Line Drawing
+</h2>
+<p class="svg-subtitle text-lg text-gray-400 text-center opacity-0">
+  스크롤하면 선이 그려집니다.
+</p>
+<div class="svg-wrapper w-full max-w-3xl mx-auto">
+  <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+    <!-- 물결 라인 -->
+    <path
+      class="draw-line"
+      d="M50 200 C150 100, 250 300, 350 200 S550 100, 650 200 S750 300, 750 200"
+      stroke="#6366f1"
+      stroke-width="4"
+      stroke-linecap="round"
+    />
+    <!-- 원 -->
+    <circle
+      class="draw-line"
+      cx="400"
+      cy="200"
+      r="120"
+      stroke="#a855f7"
+      stroke-width="3"
+    />
+    <!-- 삼각형 -->
+    <polygon
+      class="draw-line"
+      points="400,60 520,300 280,300"
+      stroke="#ec4899"
+      stroke-width="3"
+      fill="none"
+    />
+    <!-- 텍스트 경로 -->
+    <text
+      class="svg-text"
+      x="400"
+      y="385"
+      text-anchor="middle"
+      fill="#fff"
+      font-size="40"
+      font-weight="bold"
+      opacity="0"
+    >
+      GSAP + SVG
+    </text>
+  </svg>
+</div>
+</section>
+
+  <!-- Draggable -->
+  <section id="draggable" class="min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center gap-12 py-20 px-10">
     <h2 class="drag-title text-4xl md:text-6xl font-bold text-center opacity-0">
       draggable
     </h2>
@@ -236,15 +280,14 @@
     </p>
     <div class="drag-area relative w-full max-w-4xl h-[400px] bg-[#1a1a2e] rounded-3xl overflow-hidden">
       <!-- 드래그 가능한 요소들 -->
-       <div class="drag-item absolute top-10 left-10 w-24 h-24 bg-[#6366f1] rounded-2xl flex items-center justify-center cursor-grab active:cursor-grabbing text-2xl font-bold shadow-lg"></div>
-       <div class="drag-item absolute top-10 right-10 w-24 h-24 bg-[#a855f7] rounded-full flex items-center justify-center cursor-grab active:cursor-grabbing text-2xl font-bold shadow-lg"></div>
-       <div class="drag-item absolute botton-10 left-1/2 -translate-x-1/2 w-32 h-20 bg-[#ec4899] rounded-xl flex items-center justify-center cursor-grab active:cursor-grabbing text-2xl font-bold shadow-lg"></div>
-       <div class="drag-item absolute top-1/2 left-1/3 -translate-y-1/2 w-20 h-20 bg-[#14b8a6] rounded-lg flex items-center justify-center cursor-grab active:cursor-grabbing text-lg font-bold shadow-lg rotate-45"></div>
-       <p class="absolute bottom-4 right-4 text-gray-500 text-sm pointer-events-none">bounds 제한 영역</p>
+      <div class="drag-item absolute top-10 left-10 w-24 h-24 bg-[#6366f1] rounded-2xl flex items-center justify-center cursor-grab active:cursor-grabbing text-2xl font-bold shadow-lg"></div>
+      <div class="drag-item absolute top-10 right-10 w-24 h-24 bg-[#a855f7] rounded-full flex items-center justify-center cursor-grab active:cursor-grabbing text-2xl font-bold shadow-lg"></div>
+      <div class="drag-item absolute botton-10 left-1/2 -translate-x-1/2 w-32 h-20 bg-[#ec4899] rounded-xl flex items-center justify-center cursor-grab active:cursor-grabbing text-2xl font-bold shadow-lg"></div>
+      <div class="drag-item absolute top-1/2 left-1/3 -translate-y-1/2 w-20 h-20 bg-[#14b8a6] rounded-lg flex items-center justify-center cursor-grab active:cursor-grabbing text-lg font-bold shadow-lg rotate-45"></div>
+      <p class="absolute bottom-4 right-4 text-gray-500 text-sm pointer-events-none">bounds 제한 영역</p>
     </div>
-
     <!-- 드래그 정보표시 -->
-     <div class="drag-info flex gap-8 text-center">
+    <div class="drag-info flex gap-8 text-center">
       <div>
         <p class="text-gray-400 text-sm">X 좌표</p>
         <span id="drag-x" class="text-2xl font-bold text-[#6366f1]">0</span>
@@ -257,27 +300,27 @@
         <p class="text-gray-400 text-sm">회전</p>
         <span id="drag-rotation" class="text-2xl font-bold text-[#ec4899]">"0"</span>
       </div>
-     </div>
-   </section>
+    </div>
+  </section>
 
-   <!-- Footer -->
-   <footer id="footer" class="h-screen bg-[#0a0a0a] flex flex-col items-center justify-center gap-8 px-10 relative overflow-hidden">
-    <div class="footer-bg-text absolute text-[10vw] font-bold text-[#ffff08] whitespace-nowrap pointer-events-none select-none left-0">
-      GSAP INTERACTION 
-    </div>
-    <h2 class="footer-title text-5xl md:text-7xl font-bold text-center opacity-0 translate-y-20">Thanks for Scrolling</h2>
-    <p class="footer-subtitle text-lg md:text-xl text-gray-400 text-center opacity-0 translate-y-10">GSAP의 다양한 기능을 모아봤습니다.</p>
-    <div class="footer-links flex gap-6 mt-80 opacity-0 translate-y-10">
-      <a href="https://gsap.com/docs/v3/" target="_blank" class="px-6 py-3 bg-[#6366f1] rounded-full text-sm font-semibold hover:bg-[#4f46e5] transition-colors">GSAP Docs</a>
-      <a href="https://gsap.com/community/forums/" target="_blank" class="px-6 py-3 border border-gray-600 rounded-full text-sm font-semibold hover:border-white transition-colors">Community</a>
-    </div>
-    <!-- 위로가기 버튼 -->
-     <button id="scroll-top" class="mt-8 opacity-0 translate-y-10 flex flex-col items-center gap-2 text-gray-500 hover:text-white transition-colors">
-      <div class="w-[2px] h-10 bg-current rounded-full"></div>
-      <span class="text-sm">Back to Top</span>
-     </button>
-     <p class="absolute bottom-6 text-gray-600 text-sm">Built with GSAP & Tailwind CSS</p>
-   </footer>
+  <!-- Footer -->
+  <footer id="footer" class="h-screen bg-[#0a0a0a] flex flex-col items-center justify-center gap-8 px-10 relative overflow-hidden">
+  <div class="footer-bg-text absolute text-[10vw] font-bold text-[#ffff08] whitespace-nowrap pointer-events-none select-none left-0">
+    GSAP INTERACTION 
+  </div>
+  <h2 class="footer-title text-5xl md:text-7xl font-bold text-center opacity-0 translate-y-20">Thanks for Scrolling</h2>
+  <p class="footer-subtitle text-lg md:text-xl text-gray-400 text-center opacity-0 translate-y-10">GSAP의 다양한 기능을 모아봤습니다.</p>
+  <div class="footer-links flex gap-6 mt-80 opacity-0 translate-y-10">
+    <a href="https://gsap.com/docs/v3/" target="_blank" class="px-6 py-3 bg-[#6366f1] rounded-full text-sm font-semibold hover:bg-[#4f46e5] transition-colors">GSAP Docs</a>
+    <a href="https://gsap.com/community/forums/" target="_blank" class="px-6 py-3 border border-gray-600 rounded-full text-sm font-semibold hover:border-white transition-colors">Community</a>
+  </div>
+  <!-- 위로가기 버튼 -->
+    <button id="scroll-top" class="mt-8 opacity-0 translate-y-10 flex flex-col items-center gap-2 text-gray-500 hover:text-white transition-colors">
+    <div class="w-[2px] h-10 bg-current rounded-full"></div>
+    <span class="text-sm">Back to Top</span>
+    </button>
+    <p class="absolute bottom-6 text-gray-600 text-sm">Built with GSAP & Tailwind CSS</p>
+  </footer>
 
 
 <!-- GSAP -->

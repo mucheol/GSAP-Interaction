@@ -205,6 +205,123 @@ gsap.utils.toArray(".parallax-block").forEach(block => {
   });
 });
 
+//--- Image Reveal ---//
+gsap.to(".reveal-title", {
+  opacity: 1,
+  duration: 0.8,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: "#image-reveal",
+    start: "top 80%",
+  }
+});
+gsap.to(".reveal-subtitle", {
+  opacity: 1,
+  duration: 0.8,
+  delay: 0.3,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: "#image-reveal",
+    start: "top 80%",
+  }
+});
+
+const reveals = gsap.utils.toArray(".reveal-container");
+const directions = ["left", "top", "right"];
+
+reveals.forEach((container, i) => {
+  const cover = container.querySelector(".reveal-cover");
+  const img = container.querySelector('img');
+  const dir = directions[i];
+
+  // 커버가 열리는 방향
+  const coverAnim = {
+    left: {xPercent: -100},
+    top: {yPercent: -100},
+    right: {xPercent: 100},
+  };
+  // 이미지 확대하면서 등장
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: container,
+      start: "top 75%",
+    }
+  });
+  tl.to(cover, {
+    ...coverAnim[dir],
+    duration: 1,
+    ease: "power3.inOut",
+  })
+  .from(img, {
+    scale: 1.3,
+    duration: 1.2,
+    ease: "power2.out",
+  }, "-=0.8");
+});
+
+//--- Magnetic Button ---//
+gsap.to(".mag-title", {
+  opacity: 1,
+  duration: 0.8,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: "#magnetic",
+    start: "top 80%",
+  }
+});
+gsap.to(".mag-subtitle", {
+  opacity: 1,
+  duration: 0.8,
+  delay: 0.3,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: "#magnetic",
+    start: "top 80%",
+  }
+});
+
+document.querySelectorAll(".magnetic-btn").forEach(btn => {
+  const text = btn.querySelector(".magnetic-text");
+
+  btn.addEventListener("mousemove", (e) => {
+    const rect = btn.getBoundingClientRect();
+    // 버튼 중심부터 거리
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    // 버튼 마우스로 끌려가게
+    gsap.to(btn, {
+      x: x * 0.3,
+      y: y * 0.3,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+    // 안의 텍스트 따라가게
+    gsap.to(text, {
+      x: x * 0.5,
+      y: y * 0.5,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  });
+
+  btn.addEventListener("mouseleave", () => {
+    // 원래 위치로 돌아감
+    gsap.to(btn, {
+      x: 0,
+      y: 0,
+      duration: 0.5,
+      ease: "elastic.out(1, 0.3)",
+    });
+    gsap.to(text, {
+      x: 0,
+      y: 0,
+      duration: 0.3,
+      ease: "elastic.out(1,0.3)",
+    });
+  });
+});
+
 //--- SVG Drawing ---//
 gsap.to(".svg-title", {
   opacity: 1,
